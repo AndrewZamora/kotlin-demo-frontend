@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      background: purple;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="h1">This is a test site</h1>
+  <div>
+    <a href="https://www.google.com" target="_blank">A link to somewhere</a>
+  </div>
+  <script>
+    function updateFromNative(message) {
+      window.appMode = "android";
+      document.getElementById("h1").textContent = window.appMode;
+      console.log("updateFromNative was called");
+    }
+  </script>
+</body>
+
+</html>
