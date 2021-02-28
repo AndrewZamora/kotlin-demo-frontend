@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <button id="playAudioBtn">Play Audio</button>
+  <button id="pauseAudioBtn">Pause Audio</button>
+  <button id="stopAudioBtn">Stop Audio</button>
   <style>
     body {
       display: flex;
@@ -22,10 +25,31 @@
     <a href="https://www.google.com" target="_blank">A link to somewhere</a>
   </div>
   <script>
+    const playAudioBtn = document.getElementById("playAudioBtn");
+    playAudioBtn.addEventListener("click", playAudio);
+    const pauseAudioBtn = document.getElementById("pauseAudioBtn");
+    pauseAudioBtn.addEventListener("click", pauseAudio);
+    const stopAudioBtn = document.getElementById("stopAudioBtn");
+    stopAudioBtn.addEventListener("click", stopAudio);
+    // Functions that can be call by Android App 
     function updateFromNative(message) {
       window.appMode = "android";
       document.getElementById("h1").textContent = window.appMode;
       console.log("updateFromNative was called");
+    }
+
+    // Functions that can be called in Android App
+    function playAudio() {
+      JSBridge.playAudioFromUrl()
+    }
+    function pauseAudio() {
+      JSBridge.pauseAudio();
+    }
+    function stopAudio() {
+      JSBridge.stopAudio();
+    }
+    function seek(amount) {
+      JSBridge.seek(amount);
     }
   </script>
 </body>
