@@ -40,7 +40,9 @@
 
     // Functions that can be called in Android App
     function playAudio() {
-      JSBridge.playAudioFromUrl()
+      const json = JSON.stringify({ x: 5, y: 6 })
+      // To pass objects from JS Interface you have to stringify it
+      JSBridge.loadAudio(json)
     }
     function pauseAudio() {
       JSBridge.pauseAudio();
